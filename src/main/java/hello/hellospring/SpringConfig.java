@@ -1,5 +1,6 @@
 package hello.hellospring;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class SpringConfig {
     }
 
 
-    @Bean
-    public MemberService memberService() { //빈을 생성할 메소드, 빈 객체 : MemberService, 빈 이름 : memberService
+    @Bean//빈을 생성할 메소드
+    public MemberService memberService() { //메소드 반환타입 MemberService는 빈의 타입, 메소드 이름은 빈의 이름
         return new MemberService(memberRepository);
     }
 
